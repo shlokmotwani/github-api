@@ -19,9 +19,6 @@ export async function fetchUser() {
 
 export async function fetchRepository(repoName) {
   const { data } = await octokit.request(`GET /repos/${USERNAME}/${repoName}`, {
-    owner: "OWNER",
-    repo: "REPO",
-    path: "PATH",
     headers: {
       "X-GitHub-Api-Version": "2022-11-28",
     },
@@ -33,8 +30,6 @@ export async function createIssue(repoName, issue) {
   const { data } = await octokit.request(
     `POST /repos/${USERNAME}/${repoName}/issues`,
     {
-      owner: "OWNER",
-      repo: "REPO",
       title: issue.title,
       body: issue.body,
       labels: ["bug"],
