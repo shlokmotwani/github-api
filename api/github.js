@@ -18,7 +18,6 @@ export async function fetchUser() {
 }
 
 export async function fetchRepository(repoName) {
-  console.log(repoName);
   const { data } = await octokit.request(`GET /repos/${USERNAME}/${repoName}`, {
     owner: "OWNER",
     repo: "REPO",
@@ -44,6 +43,5 @@ export async function createIssue(repoName, issue) {
       },
     }
   );
-  const issueURL = data.html_url;
-  return issueURL;
+  return data;
 }
